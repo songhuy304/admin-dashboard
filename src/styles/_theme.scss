@@ -2,3 +2,11 @@
 
 $header-height: 50px;
 $footer-height: 100px;
+
+.layout_main {
+  min-height: 100vh;
+
+  .layout_content {
+    padding: 24px;
+  }
+}

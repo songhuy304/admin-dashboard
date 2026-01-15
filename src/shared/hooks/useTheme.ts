@@ -5,7 +5,6 @@ import { useMemo } from 'react';
 const styleID = '$____theme____$';
 let styleEle: HTMLElement | null = null;
 const head = document.head || document.getElementsByTagName('head')[0];
-// __THEME__ 来源 vite.config.ts
 const THEME = __THEME__;
 
 const setStyleVars = (id: string) => {
@@ -19,10 +18,6 @@ const setStyleVars = (id: string) => {
   head.append(styleEle);
 };
 
-/**
- * @description 获取当前主题key
- * @returns
- */
 export const useTheme = () => {
   let theme = useAppSelector(selectTheme);
 
@@ -38,10 +33,6 @@ export const useTheme = () => {
   }, [theme]);
 };
 
-/**
- * @description 通过设置主题key设置主题
- * @returns
- */
 export const useSetTheme = () => {
   const dispatch = useAppDispatch();
   return (theme: string) => {

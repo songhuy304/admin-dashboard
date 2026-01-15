@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
 import { ConfigProvider } from 'antd';
+import React from 'react';
 import { RouterProvider } from 'react-router-dom';
-import { useTheme } from './shared/hooks/useTheme';
 import { router } from './routers';
+import { useTheme } from './shared/hooks/useTheme';
+import './styles/_theme.scss';
 
 const Page = () => {
   const theme = useTheme();
@@ -11,14 +12,10 @@ const Page = () => {
       theme={{
         hashed: false,
         token: theme,
-      }}>
-      <React.Suspense fallback={<Component />}>
-        <RouterProvider
-          router={router}
-          future={{
-            v7_startTransition: true,
-          }}
-        />
+      }}
+    >
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <RouterProvider router={router} />
       </React.Suspense>
     </ConfigProvider>
   );

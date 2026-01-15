@@ -1,10 +1,9 @@
-import { Component } from 'react';
+import { MainLayout } from '@/components';
+import { HomePage } from '@/modules/Home/Pages';
 import { RouteObject } from 'react-router-dom';
-
-// const Login = React.lazy(() => import('@/pages/'));
-// const Register = React.lazy(() => import('@/pages/register/register'));
 
 export const authRoutes: RouteObject = {
   path: '/',
-  children: [{ path: '', element: <Component /> }],
+  element: <MainLayout />,
+  children: [{ path: '', element: <HomePage /> }],
 };

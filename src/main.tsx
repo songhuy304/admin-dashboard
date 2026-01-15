@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import { store } from './store';
 import Page from './page';
-import './index.scss';
+import 'antd/dist/reset.css';
 
 const logger: LoggerCls = Logger({
   level: process.env.NODE_ENV === 'production' ? 'ERROR' : 'INFO',
@@ -30,6 +30,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <Provider store={store}>
       <Page />
     </Provider>
-  </ErrorBoundary>
+  </ErrorBoundary>,
   // </React.StrictMode>
 );
