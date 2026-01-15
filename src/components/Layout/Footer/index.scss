@@ -1,0 +1,8 @@
+@use '../../../styles/theme.scss' as *;
+
+._footer {
+  display: flex;
+  justify-content: center;
+  height: $footer-height;
+  align-items: center;
+}
