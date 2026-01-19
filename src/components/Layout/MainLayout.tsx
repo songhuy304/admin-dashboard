@@ -2,6 +2,7 @@ import { Layout } from 'antd';
 import { useState } from 'react';
 import { SideBar } from '.';
 import AppHeader from './Header';
+import { Outlet } from 'react-router-dom';
 
 const { Content } = Layout;
 
@@ -17,7 +18,9 @@ const MainLayout = () => {
       <SideBar collapsed={collapsed} />
       <Layout>
         <AppHeader collapsed={collapsed} onToggle={handleToggle} />
-        <Content className="layout_content">Content</Content>
+        <Content className="layout_content">
+          <Outlet />
+        </Content>
       </Layout>
     </Layout>
   );

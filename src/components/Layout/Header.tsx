@@ -1,5 +1,7 @@
+import { useAppSelector } from '@/shared/hooks/redux';
+import { selectSubHeaders } from '@/store';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { Button, Layout, theme } from 'antd';
+import { Breadcrumb, Button, Layout, Space, theme } from 'antd';
 
 const { Header } = Layout;
 interface AppHeaderProps {
@@ -12,19 +14,24 @@ const AppHeader: React.FC<AppHeaderProps> = ({ collapsed, onToggle }) => {
     token: { colorBgContainer, colorSplit },
   } = theme.useToken();
 
+  const subHeaders = useAppSelector(selectSubHeaders);
+
   return (
     <Header
       style={{
-        padding: 0,
         background: colorBgContainer,
         boxShadow: `0 1px 0 0 ${colorSplit}`,
       }}
+      className="app-header"
     >
-      <Button
-        type="text"
-        icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        onClick={onToggle}
-      />
+      <Space>
+        <Button
+          type="text"
+          icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          onClick={onToggle}
+        />
+        <Breadcrumb separator=">" items={subHeaders} />
+      </Space>
     </Header>
   );
 };

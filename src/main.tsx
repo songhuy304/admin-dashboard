@@ -6,6 +6,9 @@ import ErrorBoundary from '@/components/ErrorBoundary';
 import { store } from './store';
 import Page from './page';
 import 'antd/dist/reset.css';
+import { client } from '@/shared/services';
+import { ApolloProvider } from '@apollo/client/react';
+import '@/i18n/i18n';
 
 const logger: LoggerCls = Logger({
   level: process.env.NODE_ENV === 'production' ? 'ERROR' : 'INFO',
@@ -16,19 +19,13 @@ const logger: LoggerCls = Logger({
 /** global logger */
 window.logger = logger;
 
-if (__SENTRY__) {
-  // init Sentry
-  import('./sentry').then(({ default: InitSentry }) => {
-    InitSentry();
-  });
-}
-console.log(__THEME__);
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // <React.StrictMode>
   <ErrorBoundary>
     <Provider store={store}>
-      <Page />
+      <ApolloProvider client={client}>
+        <Page />
+      </ApolloProvider>
     </Provider>
   </ErrorBoundary>,
   // </React.StrictMode>

@@ -1,32 +1,21 @@
-import { defineConfig } from 'eslint/config';
-import globals from 'globals';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 
-export default defineConfig([
-  // JS / JSX
+export default [
+  js.configs.recommended,
+
+  ...tseslint.configs.recommended,
+
   {
-    files: ['**/*.{js,jsx}'],
-    languageOptions: {
-      globals: globals.browser,
-    },
-    plugins: { js },
-    extends: ['js/recommended'],
-    rules: {
-      'no-unused-vars': 'warn',
-    },
+    ignores: ['node_modules/**', 'dist/**', 'build/**', 'coverage/**'],
   },
 
-  // TS / TSX
   {
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      globals: globals.browser,
-    },
-    extends: [...tseslint.configs.recommended],
     rules: {
+      // Tắt rule JS gốc
       'no-unused-vars': 'off',
 
+      // Khai báo không dùng → warning
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
@@ -37,4 +26,4 @@ export default defineConfig([
       ],
     },
   },
-]);
+];

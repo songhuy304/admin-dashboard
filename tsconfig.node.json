@@ -5,5 +5,11 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts", "scripts/*", "jest.setup.ts", "jest.config.ts", "eslint.config.js", "prettier.config.mjs", "commitlint.config.mjs"]
+  "include": [
+    "vite.config.ts",
+    "scripts/*",
+    "eslint.config.js",
+    "prettier.config.mjs",
+    "commitlint.config.mjs"
+  ]
 }

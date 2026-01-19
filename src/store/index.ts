@@ -1,15 +1,24 @@
-import { configureStore, combineReducers, type ThunkAction, type Action } from '@reduxjs/toolkit';
+import {
+  configureStore,
+  combineReducers,
+  type ThunkAction,
+  type Action,
+} from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import themeReducer from './features/theme-slice';
+import commonReducer from './features/common';
 
 const rootReducer = combineReducers({
   theme: themeReducer,
+  common: commonReducer,
 });
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => {
-    return !__IS_PRODUCTION__ ? getDefaultMiddleware().concat(logger) : getDefaultMiddleware();
+    return !__IS_PRODUCTION__
+      ? getDefaultMiddleware().concat(logger)
+      : getDefaultMiddleware();
   },
 });
 
@@ -21,3 +30,6 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
+
+export * from './features/common';
+export * from './features/theme-slice';
