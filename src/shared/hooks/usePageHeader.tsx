@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useAppDispatch } from '@/shared/hooks';
-import { setSubHeaders } from '@/store';
+import { setSubHeaders } from '@/shared/store';
 import { BreadcrumbItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import { APP_NAME } from '@/shared/constant';
 
@@ -13,7 +13,7 @@ const usePageHeader = ({ title, breadcrumb }: UsePageHeaderParams) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    document.title = `${title} - ${APP_NAME || 'Ups'}`;
+    document.title = `${title} - ${APP_NAME || 'ConnectorHub'}`;
 
     if (breadcrumb) {
       dispatch(setSubHeaders(breadcrumb));

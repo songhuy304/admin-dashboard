@@ -1,6 +1,4 @@
-import { TypedDocumentNode } from '@apollo/client';
-
-declare namespace Response {
+export declare namespace Response {
   export enum EStatus {
     SUCCESS = 1,
     FAIL = 0,
@@ -13,7 +11,7 @@ declare namespace Response {
     success?: EStatus;
   }
 
-  export class Pagination<T> {
+  export interface Pagination<T> {
     data: T[];
     total: number;
     page: number;
@@ -21,34 +19,5 @@ declare namespace Response {
     success: EStatus;
     message?: string;
     error?: string;
-
-    constructor(params: {
-      data: T[];
-      total: number;
-      page: number;
-      per_page: number;
-      success: EStatus;
-      message?: string;
-      error?: string;
-    }) {
-      this.data = params.data;
-      this.total = params.total;
-      this.page = params.page;
-      this.per_page = params.per_page;
-      this.success = params.success;
-      this.message = params.message;
-      this.error = params.error;
-    }
-
-    getTotal(): number {
-      return this.total;
-    }
-
-    getTotalPage(): number {
-      return Math.ceil(this.total / this.per_page);
-    }
   }
-}
-declare namespace GraphQL {
-  export type Type<TData, TVariables> = TypedDocumentNode<TData, TVariables>;
 }

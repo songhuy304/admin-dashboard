@@ -5,6 +5,7 @@ import compression from 'vite-plugin-compression';
 import { VitePWA } from 'vite-plugin-pwa';
 import { visualizer } from 'rollup-plugin-visualizer';
 import eslint from 'vite-plugin-eslint';
+import tailwindcss from '@tailwindcss/vite';
 import postcssPreset from 'postcss-preset-env';
 import path from 'path';
 
@@ -50,8 +51,8 @@ export default defineConfig(((env: ConfigEnv) => {
               'react',
               'react-dom',
               'react-router-dom',
-              'graphql',
-              '@apollo/client',
+              'axios',
+              '@tanstack/react-query',
               'redux',
               'react-redux',
               '@reduxjs/toolkit',
@@ -75,6 +76,7 @@ export default defineConfig(((env: ConfigEnv) => {
       __IS_PRODUCTION__: env.mode === 'production',
     },
     plugins: [
+      tailwindcss(),
       react(),
       compression(),
       VitePWA({

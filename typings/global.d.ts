@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /// <reference types="./request.d.ts"/>
-/// <reference types="./response.d.ts"/>
 
 declare const __THEME__: {
   tokens: Record<string, object>;

@@ -1,5 +1,5 @@
 import { useAppSelector } from '@/shared/hooks/redux';
-import { selectSubHeaders } from '@/store';
+import { selectSubHeaders } from '@/shared/store';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Breadcrumb, Button, Layout, Space, theme } from 'antd';
 

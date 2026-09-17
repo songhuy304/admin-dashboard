@@ -3,15 +3,16 @@ import Logger from '@ezuikit/utils-logger';
 import { type LoggerCls } from '@ezuikit/utils-logger/dist/types/logger';
 import { Provider } from 'react-redux';
 import ErrorBoundary from '@/components/ErrorBoundary';
-import { store } from './store';
+import { store } from './shared/store';
 import Page from './page';
+import '@/styles/tailwind.css';
 import 'antd/dist/reset.css';
-import { client } from '@/shared/services';
-import { ApolloProvider } from '@apollo/client/react';
+import { QueryClientProvider } from '@tanstack/react-query';
 import '@/i18n/i18n';
+import { queryClient } from './shared/services';
 
 const logger: LoggerCls = Logger({
-  level: process.env.NODE_ENV === 'production' ? 'ERROR' : 'INFO',
+  level: import.meta.env.PROD ? 'ERROR' : 'INFO',
   name: 'RATS',
   showTime: true,
 });
@@ -23,9 +24,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // <React.StrictMode>
   <ErrorBoundary>
     <Provider store={store}>
-      <ApolloProvider client={client}>
+      <QueryClientProvider client={queryClient}>
         <Page />
-      </ApolloProvider>
+      </QueryClientProvider>
     </Provider>
   </ErrorBoundary>,
   // </React.StrictMode>
