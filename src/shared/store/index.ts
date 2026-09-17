@@ -5,12 +5,12 @@ import {
   type Action,
 } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import themeReducer from './features/theme-slice';
 import commonReducer from './features/common';
+import authReducer from './features/auth.slice';
 
 const rootReducer = combineReducers({
-  theme: themeReducer,
   common: commonReducer,
+  auth: authReducer,
 });
 
 export const store = configureStore({
@@ -32,4 +32,4 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 >;
 
 export * from './features/common';
-export * from './features/theme-slice';
+export * from './features/auth.slice';

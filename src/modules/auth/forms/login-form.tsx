@@ -1,7 +1,7 @@
 import { Button, Flex, Form, Input, Typography } from 'antd';
 
 interface LoginFormValues {
-  username: string;
+  identifier: string;
   password: string;
 }
 
@@ -31,17 +31,11 @@ const LoginForm = ({
       className="w-full [&_.ant-form-item-label>label]:w-full"
     >
       <Form.Item
-        name="username"
+        name="identifier"
         label="Email"
-        rules={[
-          { required: true, message: 'Please enter your email or username' },
-        ]}
+        rules={[{ required: true, message: 'Please enter your email' }]}
       >
-        <Input
-          placeholder="Email or username"
-          autoComplete="username"
-          allowClear
-        />
+        <Input placeholder="Email" autoComplete="email" allowClear />
       </Form.Item>
 
       <Form.Item
@@ -72,4 +66,4 @@ const LoginForm = ({
   );
 };
 
-export default LoginForm;
+export { LoginForm };

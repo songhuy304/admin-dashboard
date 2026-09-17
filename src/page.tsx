@@ -3,6 +3,7 @@ import React from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routers';
 import './styles/_theme.scss';
+import { PageLoading } from './components/ui/page-loading';
 
 const Page = () => {
   return (
@@ -14,7 +15,7 @@ const Page = () => {
         },
       }}
     >
-      <React.Suspense fallback={<div>Loading...</div>}>
+      <React.Suspense fallback={<PageLoading />}>
         <RouterProvider router={router} />
       </React.Suspense>
     </ConfigProvider>

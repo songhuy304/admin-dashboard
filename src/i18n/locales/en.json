@@ -1,10 +1,117 @@
 {
-  "common": {
-    "button": {
-      "search": "Search",
-      "cancel": "Cancel",
-      "delete": "Delete",
-      "save": "Save"
+  "Dashboard": {
+    "title": "Dashboard",
+    "description": "Welcome to the dashboard! Here you can manage your team, view profiles, and access all of RecruitHub's features."
+  },
+
+  "Common": {
+    "loading": "Loading...",
+    "no-data": "No data available.",
+    "back": "Back",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "update": "Update",
+    "create": "Create",
+    "ok": "OK",
+    "login": "Log in",
+    "logout": "Log out",
+    "sign-up": "Sign up",
+    "or-continue-with": "Or continue with",
+    "already-have-account": "Already have an account?",
+    "approve": "Approve",
+    "reject": "Reject",
+    "continue": "Continue",
+    "save-changes": "Save changes",
+    "reset": "Reset",
+    "search": "Search",
+    "copy": "Copy",
+    "candidates": "Candidates",
+    "activity": "Activity",
+    "interviews": "Interviews",
+    "overview": "Overview"
+  },
+
+  "Column": {
+    "actions": "Actions",
+    "joined": {
+      "label": "Joined",
+      "tooltip": "Date joined the team"
+    },
+    "user": "User",
+    "role": {
+      "label": "Role",
+      "tooltip": "Role of the member in the team"
+    },
+    "email": {
+      "label": "Email",
+      "tooltip": "Email address of the member"
     }
+  },
+
+  "Modal": {
+    "confirm": {
+      "title": "Confirm Action",
+      "description": "Are you sure you want to perform this action? This action cannot be undone."
+    }
+  },
+
+  "SignUp": {
+    "title": "Sign up",
+    "description": "Create a RecruitHub account to start managing your teams and candidates.",
+    "already-have-account": "Already have an account?",
+    "sign-up-success": "Sign up successful! Please check your email to verify your account."
+  },
+
+  "SignIn": {
+    "title": "Log in",
+    "description": "Welcome back! Please log in to your RecruitHub account.",
+    "forgot-password": "Forgot password?",
+    "no-account": "Don't have an account?",
+    "sign-in-success": "Login successful! Welcome back."
+  },
+
+  "error": {
+    "internal-sever": "Internal server error",
+    "internal-server": "Internal server error",
+    "user": {
+      "forbidden": "You do not have permission to perform this action.",
+      "not-found": "User not found.",
+      "invalid-credentials": "Invalid email or password.",
+      "already-exists": "User already exists.",
+      "already-in-team": "User is already in a team.",
+      "password-same": "New password cannot be the same as the current password.",
+      "old-password-incorrect": "Current password is incorrect."
+    },
+    "auth": {
+      "token-invalid": "Invalid token.",
+      "token-expired": "Token has expired.",
+      "token-missing": "Authentication token missing.",
+      "unauthorized": "Unauthorized."
+    }
+  },
+  "validation": {
+    "required": "{field} is required.",
+    "invalid-email": "Invalid email address.",
+    "min-length": "{field} must be at least {minLength} characters.",
+    "max-length": "{field} must not exceed {maxLength} characters.",
+    "max-tags": "This field must not exceed {max}.",
+    "password-format": "Password must be 8-72 characters and include uppercase, lowercase, numbers, and special characters.",
+    "password-mismatch": "Passwords do not match.",
+    "username-format": "Username can only contain letters, numbers, and underscores.",
+    "invalid-slug": "Slug can only contain lowercase letters, numbers, and hyphens.",
+    "invalid-emails": "One or more email addresses are invalid.",
+    "salary-max": "Salary max must be greater than or equal to salary min.",
+    "expired-after-open": "Expiry date must be after or equal to opening date."
+  },
+  "Notifications": {
+    "title": "Notifications",
+    "mark-all-as-read": "Mark all as read",
+    "no-notifications": "No notifications yet",
+    "reached-end": "You've reached the end."
   }
 }
