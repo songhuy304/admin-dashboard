@@ -1,6 +1,6 @@
 import axios, { type InternalAxiosRequestConfig } from 'axios';
-import { API_BASE_URL } from '@/shared/constant';
-import { getToken } from '@/shared/utils';
+import { API_BASE_URL } from '@/shared/constants';
+import { tokenStorage } from '../utils';
 
 export const http = axios.create({
   baseURL: API_BASE_URL,
@@ -11,7 +11,7 @@ export const http = axios.create({
 });
 
 http.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-  const token = getToken();
+  const token = tokenStorage.getAccess();
 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;

@@ -1,7 +1,8 @@
 import React from 'react';
 
-const MainLayout = React.lazy(() => import('./MainLayout'));
-const SideBar = React.lazy(() => import('./Sidebar'));
-const AppHeader = React.lazy(() => import('./Header'));
+const MainLayout = React.lazy(() => import('./main-layout'));
+const AppHeader = React.lazy(() => import('./header'));
+const Sidebar = React.lazy(() => import('./sidebar'));
+import { AuthLayout } from './auth-layout';
 
-export { MainLayout, SideBar, AppHeader };
+export { MainLayout, Sidebar, AppHeader, AuthLayout };

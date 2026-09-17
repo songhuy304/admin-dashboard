@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useAppDispatch } from '@/shared/hooks';
 import { setSubHeaders } from '@/shared/store';
 import { BreadcrumbItemType } from 'antd/es/breadcrumb/Breadcrumb';
-import { APP_NAME } from '@/shared/constant';
+import { APP_NAME } from '@/shared/constants';
 
 type UsePageHeaderParams = {
   title: string;

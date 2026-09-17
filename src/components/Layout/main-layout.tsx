@@ -1,8 +1,8 @@
 import { Layout } from 'antd';
 import { useState } from 'react';
-import { SideBar } from '.';
-import AppHeader from './Header';
+import AppHeader from './header';
 import { Outlet } from 'react-router-dom';
+import SideBar from './sidebar';
 
 const { Content } = Layout;
 

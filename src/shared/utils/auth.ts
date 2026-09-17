@@ -1,15 +1,32 @@
-import Cookies from 'js-cookie';
+export const STORAGE_KEYS = {
+  ACCESS_TOKEN: 'accessToken',
+  REFRESH_TOKEN: 'refreshToken',
+} as const;
 
-const TokenKey = 'token';
+export const tokenStorage = {
+  getAccess: () => {
+    if (typeof window === 'undefined') return null;
 
-export function getToken(): string | undefined {
-  return Cookies.get(TokenKey);
-}
+    return localStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
+  },
 
-export function setToken(token: string): string | undefined {
-  return Cookies.set(TokenKey, `${token}`);
-}
+  getRefresh: () => {
+    if (typeof window === 'undefined') return null;
 
-export function removeToken() {
-  Cookies.remove(TokenKey);
-}
+    return localStorage.getItem(STORAGE_KEYS.REFRESH_TOKEN);
+  },
+
+  setTokens: (tokens: { accessToken: string; refreshToken: string }) => {
+    if (typeof window === 'undefined') return;
+
+    localStorage.setItem(STORAGE_KEYS.ACCESS_TOKEN, tokens.accessToken);
+
+    localStorage.setItem(STORAGE_KEYS.REFRESH_TOKEN, tokens.refreshToken);
+  },
+
+  clearTokens: () => {
+    if (typeof window === 'undefined') return;
+    localStorage.removeItem(STORAGE_KEYS.ACCESS_TOKEN);
+    localStorage.removeItem(STORAGE_KEYS.REFRESH_TOKEN);
+  },
+};

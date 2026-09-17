@@ -1,23 +1,40 @@
-export declare namespace Response {
-  export enum EStatus {
-    SUCCESS = 1,
-    FAIL = 0,
-  }
+interface IApiBaseResponse {
+  success: boolean;
+  message: string;
+}
 
-  export interface Common<T> {
-    code: number;
-    data: T;
-    message?: string;
-    success?: EStatus;
-  }
+interface IPaginationMetadata {
+  currentPage: number;
+  itemsPerPage: number;
+  totalItems: number;
+  totalPages: number;
+}
 
-  export interface Pagination<T> {
-    data: T[];
-    total: number;
-    page: number;
-    per_page: number;
-    success: EStatus;
-    message?: string;
-    error?: string;
-  }
+interface IResponse<T> extends IApiBaseResponse {
+  data: T;
+}
+
+interface IPaginatedResponse<T> extends IApiBaseResponse {
+  data: T[];
+  meta: IPaginationMetadata;
+}
+
+interface ApiError {
+  statusCode: number;
+  message: string;
+  error?: string;
+}
+
+interface IPagination {
+  page: number;
+  limit: number;
+}
+
+interface User {
+  id: number;
+  email: string;
+  fullName: string;
+  avatar: string;
+  role: string;
+  isVerified: boolean;
 }

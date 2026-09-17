@@ -6,13 +6,12 @@ import ErrorBoundary from '@/components/ErrorBoundary';
 import { store } from './shared/store';
 import Page from './page';
 import '@/styles/tailwind.css';
-import 'antd/dist/reset.css';
 import { QueryClientProvider } from '@tanstack/react-query';
 import '@/i18n/i18n';
-import { queryClient } from './shared/services';
+import { queryClient } from './shared/lib';
 
 const logger: LoggerCls = Logger({
-  level: import.meta.env.PROD ? 'ERROR' : 'INFO',
+  level: import.meta.env.VITE_APP_MODE === 'production' ? 'ERROR' : 'INFO',
   name: 'RATS',
   showTime: true,
 });
